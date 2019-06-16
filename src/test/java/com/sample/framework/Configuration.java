@@ -38,4 +38,14 @@ public final class Configuration {
             System.out.println(String.format("%s=%s", entry.getKey(), entry.getValue()));
         }
     }
+    public static long timeout() throws Exception {
+        String value = Configuration.get("timeout");
+        if (value == null || value.trim().equals("")){
+            return 60L;
+        }
+        return Long.parseLong(value.trim());
+    }
+    public static Platform platform() throws Exception {
+        return Platform.fromString(get("platform"));
+    }
 }
