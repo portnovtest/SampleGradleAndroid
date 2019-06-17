@@ -1,17 +1,22 @@
 package com.sample.framework.ui;
 
 import com.sample.ui.controls.Control;
+import com.sun.xml.internal.bind.v2.TODO;
+import io.appium.java_client.AppiumDriver;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.remote.Augmenter;
 
 import java.io.File;
 import java.io.IOException;
 
 public class Page {
+
+    public static final long TINY_TIMEOUT = 1;
+    public static final long SHORT_TIMEOUT = 5;
+    public static final int SCROLL_TOP_PART = 9;
+    public static final int SCROLL_TOTAL_PARTS = 10;
+
     private WebDriver driver;
 
     public Page(WebDriver driver) {
@@ -42,5 +47,78 @@ public class Page {
         File output = new File(destination);
         FileUtils.copyFile(srcFile, output);
         return output;
+    }
+    public String getSource(){
+        return this.getDriver().getPageSource();
+    }
+    public Control getScrollable(){
+        Control scrollable = new Control(this, By.xpath("(//*[@scrollable='true'])[1]"));
+        return scrollable;
+    }
+    public Control getTextControl(String message){
+        Control text = null;
+        String locator = "//*[@text=\"" + message + "\""
+                + " or contains(@text, \"" + message + "\")"
+                + " or text()=\"" + message + "\""
+                + " or contains(text(), \"" + message + "\")"
+                + " or contains(@content-desc, \"" + message + "\")]";
+        text = new Control(this, By.xpath(locator));
+        return text;
+    }
+    private Rectangle getScreenSize(){
+        Dimension size = this.getDriver().manage().window().getSize();
+        Rectangle area = new Rectangle(0,0, size.height,size.width);
+        return area;
+    }
+    public boolean swipeScreen(boolean vertical, boolean leftTop, boolean once){
+        return this.swipeScreen(vertical, leftTop, once, 2);
+    }
+
+    public boolean swipeScreen(boolean vertical, boolean leftTop, boolean once, int seconds){
+        Control scrollable = this.getScrollable();
+        if (!scrollable.exists(SHORT_TIMEOUT)){
+            return false;
+        }
+        Rectangle area = scrollable.getRect();
+        Rectangle screenArea = this.getScreenSize();
+        area.x = Math.max(area.x, screenArea.x);
+        area.y = Math.max(area.y, screenArea.y);
+        area.width = Math.min(area.width, screenArea.width - area.x);
+        area.height = Math.min(area.height, screenArea.height - area.y);
+
+        int startX = area.x + area.width / 2;
+        int startY = 0;
+        int endX = area.x + area.width / 2;
+        int endY = 0;
+
+        if (vertical){
+            startX = area.x + area.width / 2;
+            endX = area.x + area.width / 2;
+            if (leftTop){
+                startY = area.y + area.height / SCROLL_TOTAL_PARTS;
+                endY = area.y + SCROLL_TOP_PART * area.height / SCROLL_TOTAL_PARTS;
+            } else {
+                endY = area.y + area.height / SCROLL_TOTAL_PARTS;
+                startY = area.y + SCROLL_TOP_PART * area.height / SCROLL_TOTAL_PARTS;
+            }
+        } else {
+            startY = area.y + area.height / 2;
+            endY = area.y + area.height / 2;
+            if (leftTop){
+                endX = area.x + area.width / SCROLL_TOTAL_PARTS;
+                startX = area.x + SCROLL_TOP_PART * area.width / SCROLL_TOTAL_PARTS;
+            } else {
+                startX = area.x + area.width / SCROLL_TOTAL_PARTS;
+                endX = area.x + SCROLL_TOP_PART * area.width / SCROLL_TOTAL_PARTS;
+            }
+        }
+        String prevState = "";
+        String currentState = this.getSource();
+        int times = 0;
+        final int maxTries = 50;
+        // TODO: finish method, rewrite using updated swipe method
+        while (!currentState.equals(prevState)){
+           // ((AppiumDriver)this.getDriver()).
+        }
     }
 }

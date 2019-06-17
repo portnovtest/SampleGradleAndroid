@@ -10,4 +10,5 @@ import java.lang.annotation.*;
 public @interface FindBy {
     String locator();
     Platform platform() default Platform.ANY;
+    String itemLocator() default "";
 }
