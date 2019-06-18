@@ -1,14 +1,18 @@
 package com.sample.framework.ui;
 
 import com.sample.ui.controls.Control;
-import com.sun.xml.internal.bind.v2.TODO;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.Augmenter;
 
 import java.io.File;
 import java.io.IOException;
+
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static io.appium.java_client.touch.offset.PointOption.point;
+import static java.time.Duration.ofSeconds;
 
 public class Page {
 
@@ -116,9 +120,68 @@ public class Page {
         String currentState = this.getSource();
         int times = 0;
         final int maxTries = 50;
-        // TODO: finish method, rewrite using updated swipe method
         while (!currentState.equals(prevState)){
-           // ((AppiumDriver)this.getDriver()).
+           new TouchAction((AppiumDriver)this.getDriver())
+                   .press(point(startX,startY))
+                   .waitAction(waitOptions(ofSeconds(seconds)))
+                   .moveTo(point(endX,endY))
+                   .release().perform();
+           if (once || times > maxTries){
+               break;
+           }
+           times++;
+           prevState = currentState;
+           currentState = this.getSource();
         }
+        return true;
+    }
+    public boolean scrollTo(Control control, boolean up){
+        if (control.exists(TINY_TIMEOUT)){
+            return true;
+        }
+        Control scrollable = this.getScrollable();
+        if (!scrollable.exists(TINY_TIMEOUT)){
+            return false;
+        }
+        String prevState = "";
+        String currentState = this.getSource();
+        while (!currentState.equals(prevState) && this.swipeScreen(true, up, true)){
+            if (control.exists(TINY_TIMEOUT)){
+                return true;
+            }
+            prevState = currentState;
+            currentState = this.getSource();
+        }
+        return false;
+    }
+    public boolean scrollTo(boolean up){
+        return this.swipeScreen(true, up, false);
+    }
+    public boolean scrollTo(Control control, ScrollTo scrollDirection){
+        switch (scrollDirection){
+            case TOP_ONLY:
+                return scrollTo(control,true);
+            case BOTTOM_ONLY:
+                return scrollTo(control, false);
+            case BOTTOM_TOP:
+                return scrollTo(control, false) || scrollTo(control, true);
+            case TOP_BOTTOM:
+            default:
+                    return scrollTo(control, true) || scrollTo(control, false);
+        }
+    }
+    public boolean scrollTo(Control control){
+        return this.scrollTo(control, ScrollTo.TOP_BOTTOM);
+    }
+    public boolean scrollTo(String text, boolean up){
+        Control control = this.getTextControl(text);
+        return scrollTo(control, up);
+    }
+    public boolean scrollTo(String text, ScrollTo scrollDirection){
+        Control control = this.getTextControl(text);
+        return scrollTo(control, scrollDirection);
+    }
+    public boolean scrollTo(String text){
+        return this.scrollTo(text, ScrollTo.TOP_BOTTOM);
     }
 }

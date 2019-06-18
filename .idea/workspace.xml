@@ -1,41 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="36a7277e-fcee-413d-96be-d7c3cc39749b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/sample/framework/ui/ScrollTo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/sample/framework/ui/SubItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/sample/framework/ui/SubItems.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/sample/tests/junit/SubItemTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/sample/ui/controls/TableView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/sample/framework/Configuration.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/sample/framework/Configuration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/sample/framework/ui/FindBy.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/sample/framework/ui/FindBy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/sample/framework/ui/PageFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/sample/framework/ui/PageFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/sample/tests/controls/LocationLookupEdit.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/sample/tests/controls/LocationLookupEdit.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/sample/tests/junit/SampleTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/sample/tests/junit/SampleTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/sample/tests/pages/DestinationLookupPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/sample/tests/pages/DestinationLookupPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/sample/ui/controls/Control.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/sample/ui/controls/Control.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.sample.tests.junit.SampleTest.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.sample.tests.junit.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.sample.tests.junit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.sample.tests.junit.SampleTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sample/framework/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sample/framework/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sample/framework/ui/FindBy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sample/framework/ui/FindBy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sample/framework/ui/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sample/framework/ui/Page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sample/framework/ui/PageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sample/framework/ui/PageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sample/tests/pages/DestinationLookupPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sample/tests/pages/DestinationLookupPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sample/ui/controls/Control.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sample/ui/controls/Control.java" afterDir="false" />
-    </list>
+    <list default="true" id="36a7277e-fcee-413d-96be-d7c3cc39749b" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -90,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/sample/framework/ui/Page.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="119" column="45" selection-start-line="119" selection-start-column="45" selection-end-line="119" selection-end-column="45" />
+            <state relative-caret-position="265">
+              <caret line="122" column="4" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1784#1785#0" expanded="true" />
@@ -251,7 +217,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="960" />
@@ -520,7 +486,7 @@
       <workItem from="1560480098818" duration="1196000" />
       <workItem from="1560484228477" duration="9964000" />
       <workItem from="1560621020698" duration="20938000" />
-      <workItem from="1560710347052" duration="11469000" />
+      <workItem from="1560710347052" duration="11780000" />
     </task>
     <servers />
   </component>
@@ -557,10 +523,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52889000" />
+    <option name="totallyTimeSpent" value="53200000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="960" extended-state="1" />
+    <frame x="0" y="23" width="1680" height="960" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1978022" />
@@ -571,7 +537,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3289941" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3289941" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3995272" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -579,7 +545,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4993895" weight="0.32818073" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4993895" visible="true" weight="0.32781065" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50061053" side_tool="true" weight="0.32978722" />
       <window_info anchor="bottom" id="Build" order="12" sideWeight="0.4993895" weight="0.32978722" />
       <window_info anchor="bottom" id="Spring" order="13" />
@@ -847,8 +813,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/sample/framework/ui/Page.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="119" column="45" selection-start-line="119" selection-start-column="45" selection-end-line="119" selection-end-column="45" />
+        <state relative-caret-position="265">
+          <caret line="122" column="4" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1784#1785#0" expanded="true" />
