@@ -1,5 +1,6 @@
 package com.sample.framework.ui;
 
+import com.sample.framework.Configuration;
 import com.sample.ui.controls.Control;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
@@ -9,6 +10,7 @@ import org.openqa.selenium.remote.Augmenter;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
 import static io.appium.java_client.touch.offset.PointOption.point;
@@ -183,5 +185,27 @@ public class Page {
     }
     public boolean scrollTo(String text){
         return this.scrollTo(text, ScrollTo.TOP_BOTTOM);
+    }
+    public void hideKeyboard(){
+        try {
+            ((AppiumDriver)this.getDriver()).hideKeyboard();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public boolean isCurrent() throws Exception {
+        return isCurrent(Configuration.timeout());
+    }
+    public boolean isCurrent(long timeout) throws Exception {
+        Field[] fields = this.getClass().getFields();
+        for (Field field : fields) {
+            if (Control.class.isAssignableFrom(field.getType())){
+                Control control = (Control)field.get(this);
+                if (!control.isExcludeFromSearch() && !control.exists(timeout)){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

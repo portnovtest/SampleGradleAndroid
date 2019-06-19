@@ -8,6 +8,7 @@ import com.sample.framework.ui.SubItem;
 import io.appium.java_client.MobileElement;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -22,6 +23,8 @@ public class Control {
     private HashMap<String, SubItem> subItemsMap;
     private String scrollTo;
     private ScrollTo scrollDirection;
+    private String format = "";
+    private boolean excludeFromSearch;
 
     public Control(Page parentValue, By locatorValue) {
         super();
@@ -63,6 +66,21 @@ public class Control {
             this.subItemsMap.put(item.name(),item);
         }
     }
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public boolean isExcludeFromSearch() {
+        return excludeFromSearch;
+    }
+
+    public void setExcludeFromSearch(boolean excludeFromSearch) {
+        this.excludeFromSearch = excludeFromSearch;
+    }
 
     public String getScrollTo() {
         return scrollTo;
@@ -87,18 +105,49 @@ public class Control {
     public WebElement element(int index){
         return getDriver().findElements(locator).get(index);
     }
-    public boolean exists(long timeout){
-        scrollTo();
-        WebDriverWait wait = new WebDriverWait(getDriver(),timeout);
+    public boolean waitUntil(ExpectedCondition<?> condition, long timeout){
+        WebDriverWait wait = new WebDriverWait(getDriver(), timeout);
         try {
-            wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+            wait.until(condition);
         } catch (TimeoutException e) {
             return false;
         }
         return true;
     }
+    public boolean exists(long timeout){
+        this.scrollTo();
+        return waitUntil(ExpectedConditions.presenceOfElementLocated(locator), timeout);
+    }
     public boolean exists(){
         return exists(TIMEOUT);
+    }
+    public boolean visible(long timeout){
+        Assert.assertTrue(this.exists(timeout));
+        return waitUntil(ExpectedConditions.visibilityOfElementLocated(locator), timeout);
+    }
+    public boolean visible(){
+        return visible(TIMEOUT);
+    }
+    public boolean invisible(long timeout){
+        Assert.assertTrue(this.exists(timeout));
+        return waitUntil(ExpectedConditions.invisibilityOfElementLocated(locator), timeout);
+    }
+    public boolean invisible(){
+        return invisible(TIMEOUT);
+    }
+    public boolean enabled(long timeout){
+        this.scrollTo();
+        return waitUntil(ExpectedConditions.elementToBeClickable(locator), timeout);
+    }
+    public boolean enabled(){
+        return enabled(TIMEOUT);
+    }
+    public boolean disabled(long timeout){
+        this.scrollTo();
+        return waitUntil(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(locator)), timeout);
+    }
+    public boolean disabled(){
+        return disabled(TIMEOUT);
     }
     public void click(){
         Assert.assertTrue("Unable to find element with locator: " + this.getLocator(),
@@ -107,12 +156,18 @@ public class Control {
     }
     public <T extends Page> T click(Class<T> pageClass) throws Exception {
         this.click();
-        return PageFactory.init(this.getDriver(), pageClass);
+        T page = PageFactory.init(this.getDriver(), pageClass);
+        Assert.assertTrue(String.format("The page of %s class didn't appear during specified timeout",
+                pageClass.getName()), page.isCurrent());
+        return page;
     }
     public String getText(){
         Assert.assertTrue("Unable to find element with locator: " + this.getLocator(),
                 this.exists());
         return this.element().getText();
+    }
+    public String getValue(){
+        return this.getText();
     }
 
     public Rectangle getRect(){

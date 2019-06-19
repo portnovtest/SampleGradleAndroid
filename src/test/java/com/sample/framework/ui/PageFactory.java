@@ -68,6 +68,8 @@ public class PageFactory {
                     control.addSubItems(getSubItemsForPlatform(items, Configuration.platform()));
                     control.setScrollTo(locator.scrollTo());
                     control.setScrollDirection(locator.scrollDirection());
+                    control.setFormat(locator.format());
+                    control.setExcludeFromSearch(locator.excludeFromSearch());
                     field.set(page, control);
                 }
             }

@@ -1,6 +1,7 @@
 package com.sample.tests.junit;
 
 import com.sample.tests.pages.SearchResultsPage;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -38,6 +39,9 @@ public class SampleTest extends TestCommon {
     public void testSample() throws Exception {
         searchPage.editDestination.setText(destination);
         searchPage.buttonTodaysDate.click();
+        long checkin = Long.parseLong(searchPage.dateCheckin.getValue());
+        long checkout = Long.parseLong(searchPage.dateCheckout.getValue());
+        Assert.assertEquals(checkout - checkin, 24 * 60 * 1000);
         if (this.isBusiness){
             searchPage.radioBusiness.click();
         } else {

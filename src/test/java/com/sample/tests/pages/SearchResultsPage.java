@@ -11,7 +11,7 @@ public class SearchResultsPage extends Page {
     public Control textSubTitle;
 
     @FindBy(locator = "//*[contains(@text, 'Park Plaza')]",
-            scrollTo = "Park Plaza", scrollDirection = ScrollTo.TOP_BOTTOM)
+            scrollTo = "Park Plaza", scrollDirection = ScrollTo.TOP_BOTTOM, excludeFromSearch = true)
     public Control textParkPlaza;
 
     public SearchResultsPage(WebDriver driver) {
