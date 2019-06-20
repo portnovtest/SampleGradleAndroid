@@ -1,6 +1,7 @@
 package com.sample.tests.junit;
 
 import com.sample.tests.pages.SearchResultsPage;
+import com.sample.ui.controls.Control;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,7 +39,26 @@ public class SampleTest extends TestCommon {
     @Test
     public void testSample() throws Exception {
         searchPage.editDestination.setText(destination);
+
         searchPage.buttonTodaysDate.click();
+        Assert.assertTrue(
+                searchPage.allElementsExist(
+                        new Control[] {
+                                searchPage.editDestination,
+                                searchPage.dateCheckin,
+                                searchPage.buttonSearch
+                        }
+                )
+        );
+        Assert.assertTrue(
+                searchPage.anyOfElementsExist(
+                        new Control[] {
+                                searchPage.editDestination,
+                                searchPage.dateCheckin,
+                                searchPage.buttonSearch
+                        }
+                )
+        );
         long checkin = Long.parseLong(searchPage.dateCheckin.getValue());
         long checkout = Long.parseLong(searchPage.dateCheckout.getValue());
         Assert.assertEquals(checkout - checkin, 24 * 60 * 1000);

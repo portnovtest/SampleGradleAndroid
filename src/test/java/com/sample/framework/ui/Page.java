@@ -208,4 +208,32 @@ public class Page {
         }
         return true;
     }
+    protected boolean allElementsAre(Control[] elements, String state) throws Exception {
+        for (Control element : elements) {
+            if (!(Boolean)(element.getClass().getMethod(state).invoke(element))){
+                return false;
+            }
+        }
+        return true;
+    }
+    protected boolean anyOfElementsIs(Control[] elements, String state) throws Exception {
+        for (Control element : elements) {
+            if ((Boolean)(element.getClass().getMethod(state, long.class).invoke(element, 1))){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean allElementsExist(Control[] elements) throws Exception {
+        return allElementsAre(elements, "exists");
+    }
+    public boolean allElementsVisible(Control[] elements) throws Exception {
+        return allElementsAre(elements, "visible");
+    }
+    public boolean anyOfElementsExist(Control[] elements) throws Exception {
+        return anyOfElementsIs(elements, "exists");
+    }
+    public boolean anyOfElementsVisible(Control[] elements) throws Exception {
+        return anyOfElementsIs(elements, "visible");
+    }
 }
