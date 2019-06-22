@@ -23,9 +23,13 @@ public final class Configuration {
             reader.close();
         }
     }
-    public static String get(String option) throws Exception {
+    public static String get(String option)  {
         if (properties == null){
-            load();
+            try {
+                load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         String value = properties.getProperty(option);
         if (value == null){
