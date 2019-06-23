@@ -1,5 +1,6 @@
 package com.sample.tests.junit;
 
+import com.sample.framework.utils.SystemUtils;
 import com.sample.tests.pages.SearchResultsPage;
 import com.sample.ui.controls.Control;
 import org.junit.Assert;
@@ -59,6 +60,14 @@ public class SampleTest extends TestCommon {
                         }
                 )
         );
+        searchPage.editDestination.setText(destination);
+
+        searchPage.buttonTodaysDate.click();
+        SystemUtils.switchApp();
+        Thread.sleep(1000);
+        SystemUtils.killApp();
+        SystemUtils.switchApp();
+
         long checkin = Long.parseLong(searchPage.dateCheckin.getValue());
         long checkout = Long.parseLong(searchPage.dateCheckout.getValue());
         Assert.assertEquals(checkout - checkin, 24 * 60 * 1000);
