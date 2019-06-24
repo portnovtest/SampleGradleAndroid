@@ -1,12 +1,16 @@
 package com.sample.tests.pages;
 
+import com.sample.framework.ui.Alias;
 import com.sample.framework.ui.FindBy;
 import com.sample.framework.ui.Page;
 import com.sample.framework.ui.ScrollTo;
 import com.sample.ui.controls.Control;
 import org.openqa.selenium.WebDriver;
 
+@Alias("Search Results")
 public class SearchResultsPage extends Page {
+
+    @Alias("Title")
     @FindBy(locator = "com.booking:id/subtitle_layout_text")
     public Control textSubTitle;
 

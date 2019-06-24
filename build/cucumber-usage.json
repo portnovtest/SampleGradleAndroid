@@ -1,0 +1,24 @@
+[
+  {
+    "source": "^I am on the \"([^\"]*)\" page$",
+    "steps": [
+      {
+        "name": "I am on the \"Search\" page",
+        "aggregatedDurations": {
+          "median": 0.041559602,
+          "average": 0.041559602
+        },
+        "durations": [
+          {
+            "duration": 0.075622908,
+            "location": "file:src/test/java/com/sample/tests/features/Sample.feature:4"
+          },
+          {
+            "duration": 0.007496296,
+            "location": "file:src/test/java/com/sample/tests/features/Sample.feature:4"
+          }
+        ]
+      }
+    ]
+  }
+]

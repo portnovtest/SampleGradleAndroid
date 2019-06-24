@@ -20,7 +20,7 @@ public final class Driver {
     }
 
     private static ConcurrentHashMap<String, WebDriver> driverThreadMap = new ConcurrentHashMap<>();
-    public static final Map<String, Class<?>> driverMap = new HashMap<String, Class<?>>(){
+    private static final Map<String, Class<?>> driverMap = new HashMap<String, Class<?>>(){
         public static final long serialVersionUID = 1L;
 
         {

@@ -121,6 +121,12 @@ public class Control {
     public boolean exists(){
         return exists(TIMEOUT);
     }
+    public boolean disappears(long timeout){
+        return waitUntil(ExpectedConditions.not(ExpectedConditions.presenceOfElementLocated(locator)),timeout);
+    }
+    public boolean disappears(){
+        return disappears(TIMEOUT);
+    }
     public boolean visible(long timeout){
         Assert.assertTrue(this.exists(timeout));
         return waitUntil(ExpectedConditions.visibilityOfElementLocated(locator), timeout);

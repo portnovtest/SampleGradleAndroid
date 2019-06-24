@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Sample search" tests="2" skipped="0" failures="2" errors="0" timestamp="2019-06-24T01:03:21" hostname="Phils-MacBook-Pro.local" time="0.127">
+  <properties/>
+  <testcase name="Basic search scenario" classname="Sample search" time="0.111">
+    <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
+	at java.util.Objects.requireNonNull(Objects.java:203)
+	at org.openqa.selenium.support.ui.FluentWait.&lt;init&gt;(FluentWait.java:106)
+	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:85)
+	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:45)
+	at com.sample.ui.controls.Control.waitUntil(Control.java:109)
+	at com.sample.ui.controls.Control.exists(Control.java:119)
+	at com.sample.ui.controls.Control.exists(Control.java:122)
+	at com.sample.ui.controls.Control.click(Control.java:160)
+	at com.sample.tests.controls.LocationLookupEdit.setText(LocationLookupEdit.java:19)
+	at com.sample.tests.steps.SampleSteps.i_enter_text_into_the_field(SampleSteps.java:24)
+	at ✽.I enter &quot;Leeds&quot; text into the &quot;Destination&quot; field(file:src/test/java/com/sample/tests/features/Sample.feature:5)
+</failure>
+    <failure message="cucumber.runtime.junit.UndefinedThrowable: The step &quot;the &quot;Title&quot; field has &quot;Leeds&quot; text&quot; is undefined" type="cucumber.runtime.junit.UndefinedThrowable">cucumber.runtime.junit.UndefinedThrowable: The step &quot;the &quot;Title&quot; field has &quot;Leeds&quot; text&quot; is undefined
+</failure>
+  </testcase>
+  <testcase name="Basic search scenario" classname="Sample search" time="0.013">
+    <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
+	at java.util.Objects.requireNonNull(Objects.java:203)
+	at org.openqa.selenium.support.ui.FluentWait.&lt;init&gt;(FluentWait.java:106)
+	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:85)
+	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:45)
+	at com.sample.ui.controls.Control.waitUntil(Control.java:109)
+	at com.sample.ui.controls.Control.exists(Control.java:119)
+	at com.sample.ui.controls.Control.exists(Control.java:122)
+	at com.sample.ui.controls.Control.click(Control.java:160)
+	at com.sample.tests.controls.LocationLookupEdit.setText(LocationLookupEdit.java:19)
+	at com.sample.tests.steps.SampleSteps.i_enter_text_into_the_field(SampleSteps.java:24)
+	at ✽.I enter &quot;Manchester&quot; text into the &quot;Destination&quot; field(file:src/test/java/com/sample/tests/features/Sample.feature:5)
+</failure>
+    <failure message="cucumber.runtime.junit.UndefinedThrowable: The step &quot;the &quot;Title&quot; field has &quot;Manchester&quot; text&quot; is undefined" type="cucumber.runtime.junit.UndefinedThrowable">cucumber.runtime.junit.UndefinedThrowable: The step &quot;the &quot;Title&quot; field has &quot;Manchester&quot; text&quot; is undefined
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

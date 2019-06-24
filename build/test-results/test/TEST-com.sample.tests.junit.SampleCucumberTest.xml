@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.sample.tests.junit.SampleCucumberTest" tests="0" skipped="0" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="Phils-MacBook-Pro.local" time="0.0">
+  <properties/>
+  <system-out><![CDATA[
+?[31mFailed scenarios:?[0m
+?[31msrc/test/java/com/sample/tests/features/Sample.feature:14 ?[0m# Basic search scenario
+?[31msrc/test/java/com/sample/tests/features/Sample.feature:15 ?[0m# Basic search scenario
+
+2 Scenarios (?[31m2 failed?[0m)
+14 Steps (?[31m2 failed?[0m, ?[36m8 skipped?[0m, ?[33m2 undefined?[0m, ?[32m2 passed?[0m)
+0m0.248s
+
+java.lang.NullPointerException
+	at java.util.Objects.requireNonNull(Objects.java:203)
+	at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:106)
+	at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:85)
+	at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:45)
+	at com.sample.ui.controls.Control.waitUntil(Control.java:109)
+	at com.sample.ui.controls.Control.exists(Control.java:119)
+	at com.sample.ui.controls.Control.exists(Control.java:122)
+	at com.sample.ui.controls.Control.click(Control.java:160)
+	at com.sample.tests.controls.LocationLookupEdit.setText(LocationLookupEdit.java:19)
+	at com.sample.tests.steps.SampleSteps.i_enter_text_into_the_field(SampleSteps.java:24)
+	at ✽.I enter "Leeds" text into the "Destination" field(file:src/test/java/com/sample/tests/features/Sample.feature:5)
+
+java.lang.NullPointerException
+	at java.util.Objects.requireNonNull(Objects.java:203)
+	at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:106)
+	at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:85)
+	at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:45)
+	at com.sample.ui.controls.Control.waitUntil(Control.java:109)
+	at com.sample.ui.controls.Control.exists(Control.java:119)
+	at com.sample.ui.controls.Control.exists(Control.java:122)
+	at com.sample.ui.controls.Control.click(Control.java:160)
+	at com.sample.tests.controls.LocationLookupEdit.setText(LocationLookupEdit.java:19)
+	at com.sample.tests.steps.SampleSteps.i_enter_text_into_the_field(SampleSteps.java:24)
+	at ✽.I enter "Manchester" text into the "Destination" field(file:src/test/java/com/sample/tests/features/Sample.feature:5)
+
+
+You can implement missing steps with the snippets below:
+
+@Then("the {string} field has {string} text")
+public void the_field_has_text(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new cucumber.api.PendingException();
+}
+
+]]></system-out>
+  <system-err><![CDATA[Jun 23, 2019 6:03:21 PM cucumber.runtime.java.ObjectFactoryLoader loadSingleObjectFactory
+WARNING: Use deprecated reflections to load ObjectFactory.
+]]></system-err>
+</testsuite>

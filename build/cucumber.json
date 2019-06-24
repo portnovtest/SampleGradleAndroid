@@ -1,0 +1,279 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2019-06-24T01:03:21.851Z",
+        "line": 14,
+        "name": "Basic search scenario",
+        "description": "",
+        "id": "sample-search;basic-search-scenario;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 75622908,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I am on the \"Search\" page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Search",
+                  "offset": 13
+                }
+              ],
+              "location": "SampleSteps.i_am_on_the_page(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.NullPointerException\n\tat java.util.Objects.requireNonNull(Objects.java:203)\n\tat org.openqa.selenium.support.ui.FluentWait.\u003cinit\u003e(FluentWait.java:106)\n\tat org.openqa.selenium.support.ui.WebDriverWait.\u003cinit\u003e(WebDriverWait.java:85)\n\tat org.openqa.selenium.support.ui.WebDriverWait.\u003cinit\u003e(WebDriverWait.java:45)\n\tat com.sample.ui.controls.Control.waitUntil(Control.java:109)\n\tat com.sample.ui.controls.Control.exists(Control.java:119)\n\tat com.sample.ui.controls.Control.exists(Control.java:122)\n\tat com.sample.ui.controls.Control.click(Control.java:160)\n\tat com.sample.tests.controls.LocationLookupEdit.setText(LocationLookupEdit.java:19)\n\tat com.sample.tests.steps.SampleSteps.i_enter_text_into_the_field(SampleSteps.java:24)\n\tat ✽.I enter \"Leeds\" text into the \"Destination\" field(file:src/test/java/com/sample/tests/features/Sample.feature:5)\n",
+              "duration": 16118866,
+              "status": "failed"
+            },
+            "line": 5,
+            "name": "I enter \"Leeds\" text into the \"Destination\" field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Leeds",
+                  "offset": 9
+                },
+                {
+                  "val": "Destination",
+                  "offset": 31
+                }
+              ],
+              "location": "SampleSteps.i_enter_text_into_the_field(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 317057,
+              "status": "skipped"
+            },
+            "line": 6,
+            "name": "click on the \"Today\u0027s date\" element",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Today\u0027s date",
+                  "offset": 14
+                }
+              ],
+              "location": "SampleSteps.click_on_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 224975,
+              "status": "skipped"
+            },
+            "line": 7,
+            "name": "click on the \"Business\" element",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Business",
+                  "offset": 14
+                }
+              ],
+              "location": "SampleSteps.click_on_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 233109,
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "click on the \"Search\" button",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Search",
+                  "offset": 14
+                }
+              ],
+              "location": "SampleSteps.click_on_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 307239,
+              "status": "skipped"
+            },
+            "line": 9,
+            "name": "I should see the \"Search Results\" screen",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Search Results",
+                  "offset": 18
+                }
+              ],
+              "location": "SampleSteps.i_should_see_the_screen(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 10,
+            "name": "the \"Title\" field has \"Leeds\" text",
+            "match": {},
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-06-24T01:03:21.966Z",
+        "line": 15,
+        "name": "Basic search scenario",
+        "description": "",
+        "id": "sample-search;basic-search-scenario;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 7496296,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I am on the \"Search\" page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Search",
+                  "offset": 13
+                }
+              ],
+              "location": "SampleSteps.i_am_on_the_page(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.NullPointerException\n\tat java.util.Objects.requireNonNull(Objects.java:203)\n\tat org.openqa.selenium.support.ui.FluentWait.\u003cinit\u003e(FluentWait.java:106)\n\tat org.openqa.selenium.support.ui.WebDriverWait.\u003cinit\u003e(WebDriverWait.java:85)\n\tat org.openqa.selenium.support.ui.WebDriverWait.\u003cinit\u003e(WebDriverWait.java:45)\n\tat com.sample.ui.controls.Control.waitUntil(Control.java:109)\n\tat com.sample.ui.controls.Control.exists(Control.java:119)\n\tat com.sample.ui.controls.Control.exists(Control.java:122)\n\tat com.sample.ui.controls.Control.click(Control.java:160)\n\tat com.sample.tests.controls.LocationLookupEdit.setText(LocationLookupEdit.java:19)\n\tat com.sample.tests.steps.SampleSteps.i_enter_text_into_the_field(SampleSteps.java:24)\n\tat ✽.I enter \"Manchester\" text into the \"Destination\" field(file:src/test/java/com/sample/tests/features/Sample.feature:5)\n",
+              "duration": 593415,
+              "status": "failed"
+            },
+            "line": 5,
+            "name": "I enter \"Manchester\" text into the \"Destination\" field",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Manchester",
+                  "offset": 9
+                },
+                {
+                  "val": "Destination",
+                  "offset": 36
+                }
+              ],
+              "location": "SampleSteps.i_enter_text_into_the_field(String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 309504,
+              "status": "skipped"
+            },
+            "line": 6,
+            "name": "click on the \"Today\u0027s date\" element",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Today\u0027s date",
+                  "offset": 14
+                }
+              ],
+              "location": "SampleSteps.click_on_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 506778,
+              "status": "skipped"
+            },
+            "line": 7,
+            "name": "click on the \"Leisure\" element",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Leisure",
+                  "offset": 14
+                }
+              ],
+              "location": "SampleSteps.click_on_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 495124,
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "click on the \"Search\" button",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Search",
+                  "offset": 14
+                }
+              ],
+              "location": "SampleSteps.click_on_the_element(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 548229,
+              "status": "skipped"
+            },
+            "line": 9,
+            "name": "I should see the \"Search Results\" screen",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Search Results",
+                  "offset": 18
+                }
+              ],
+              "location": "SampleSteps.i_should_see_the_screen(String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 10,
+            "name": "the \"Title\" field has \"Manchester\" text",
+            "match": {},
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Sample search",
+    "description": "",
+    "id": "sample-search",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/com/sample/tests/features/Sample.feature",
+    "tags": []
+  }
+]

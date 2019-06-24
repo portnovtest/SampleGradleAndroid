@@ -1,16 +1,20 @@
 package com.sample.framework.ui;
 
 import com.sample.framework.Configuration;
+import com.sample.framework.Driver;
 import com.sample.ui.controls.Control;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.Augmenter;
+import org.reflections.Reflections;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
 import static io.appium.java_client.touch.offset.PointOption.point;
@@ -18,18 +22,39 @@ import static java.time.Duration.ofSeconds;
 
 public class Page {
 
-    public static final long TINY_TIMEOUT = 1;
-    public static final long SHORT_TIMEOUT = 5;
-    public static final int SCROLL_TOP_PART = 9;
-    public static final int SCROLL_TOTAL_PARTS = 10;
+    private static final long TINY_TIMEOUT = 1;
+    private static final long SHORT_TIMEOUT = 5;
+    private static final int SCROLL_TOP_PART = 9;
+    private static final int SCROLL_TOTAL_PARTS = 10;
+    private static final long TIMEOUT = Configuration.timeout();
+    private static ConcurrentHashMap<String,Page> currentPages = new ConcurrentHashMap<>();
+
 
     private WebDriver driver;
 
-    public Page(WebDriver driver) {
-        super();
-        this.driver = driver;
+    public Page(WebDriver driverValue) {
+        this.driver = driverValue;
     }
-
+    public static Page screen(String name) throws Exception {
+        return screen(name, Configuration.get("pages_package"));
+    }
+    public static Page screen(String name, String packageName) throws Exception {
+        Reflections reflections = new Reflections(packageName);
+        Set<Class<? extends Page>> subTypes = reflections.getSubTypesOf(Page.class);
+        for (Class<? extends Page> type : subTypes) {
+            Alias annotation = type.getAnnotation(Alias.class);
+            if (annotation != null && annotation.value().equals(name)) {
+                return PageFactory.init(Driver.current(), type);
+            }
+        }
+        return null;
+    }
+    public static Page getCurrent(){
+        return currentPages.get(Driver.getThreadName());
+    }
+    public static void setCurrent(Page page){
+        currentPages.put(Driver.getThreadName(), page);
+    }
     public WebDriver getDriver() {
         return driver;
     }
@@ -227,13 +252,48 @@ public class Page {
     public boolean allElementsExist(Control[] elements) throws Exception {
         return allElementsAre(elements, "exists");
     }
-    public boolean allElementsVisible(Control[] elements) throws Exception {
+    public boolean allElementsDoNotExist(Control[] elements) throws Exception {
+        return allElementsAre(elements, "disappears");
+    }
+    public boolean allElementsAreVisible(Control[] elements) throws Exception {
         return allElementsAre(elements, "visible");
+    }
+    public boolean allElementsAreInvisible(Control[] elements) throws Exception {
+        return allElementsAre(elements, "invisible");
+    }
+    public boolean allElementsAreEnabled(Control[] elements) throws Exception {
+        return allElementsAre(elements, "enabled");
+    }
+    public boolean allElementsAreDisabled(Control[] elements) throws Exception {
+        return allElementsAre(elements, "disabled");
     }
     public boolean anyOfElementsExist(Control[] elements) throws Exception {
         return anyOfElementsIs(elements, "exists");
     }
-    public boolean anyOfElementsVisible(Control[] elements) throws Exception {
+    public boolean anyOfElementsDoNotExist(Control[] elements) throws Exception {
+        return anyOfElementsIs(elements, "disappears");
+    }
+    public boolean anyOfElementsIsVisible(Control[] elements) throws Exception {
         return anyOfElementsIs(elements, "visible");
+    }
+    public boolean anyOfElementsIsInvisible(Control[] elements) throws Exception {
+        return anyOfElementsIs(elements, "invisible");
+    }
+    public boolean anyOfElementsIsEnabled(Control[] elements) throws Exception {
+        return anyOfElementsIs(elements, "enabled");
+    }
+    public boolean anyOfElementsIsDisabled(Control[] elements) throws Exception {
+        return anyOfElementsIs(elements, "disabled");
+    }
+    public Control onPage(String name) throws Exception {
+        for (Field field : this.getClass().getFields()) {
+            if (Control.class.isAssignableFrom(field.getType())){
+                Alias alias = field.getAnnotation(Alias.class);
+                if (alias != null && name.equals(alias.value())){
+                    return (Control)field.get(this);
+                }
+            }
+        }
+        return null;
     }
 }
